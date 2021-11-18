@@ -9,8 +9,8 @@ def SignUp():
     if db[username] == "" :  
      pasword = input("pasword : ")
      message.update(pasword.encode())
-    HashedPas = message
-    if not db.prefix(username) == HashedPas:
+     HashedPas = message
+    if not db[username] == HashedPas:
         db[username] = HashedPas
         JustCreatedAccount = True
     
