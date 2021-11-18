@@ -1,4 +1,3 @@
-from functions.Bank import bank
 import hashlib
 from replit import db
 def signinpromt() :
@@ -7,51 +6,36 @@ def signinpromt() :
     setup()
   
   else: print("error command not known ")
-  return 
+  return
   
 
 
 def setup():
+     Bank = "IOU Bank"
+     AmmountOfIOU = 24
      
-     #makeing the vars
-     global message
-     global pasword
-     global HashedPas
-     global JustCreatedAccount
-     global username
-     global Bank
-     global AmmountOfIOU
-     global prompt
-     #setting defult preamators
      JustCreatedAccount = False
      message = hashlib.sha256()
      username = "username"
      pasword = "pasword"
      HashedPas = message.update(pasword.encode())
-     #defineing bank
-     print(HashedPas)
-     Bank = "IOU Bank"
-     AmmountOfIOU = 24
+     prompt = "pre"
      username = input("Username : ")
-     if prompt == "signup" :
+     if prompt == "sign up" :
           if db[username] == "None" :  
            pasword = input("pasword : ")
           message.update(pasword.encode())
           HashedPas = message
           if not db.prefix(username) == HashedPas:
            db[username] = HashedPas   
-           JustCreatedAccount = True
-           setup
-         
-         
-     elif prompt == "signin":
-       message.update(pasword.encode())
-       HashedPas = message
-       bank
-     
+           JustCreatedAccount = True 
+           setup()
+     elif prompt == "sign in":
+         pasword = input("pasword : ")
+         message.update(pasword.encode())
+         HashedPas = message
+     return 
          
         
-     #Signin / Signup prompt
-     
-
+    
          
