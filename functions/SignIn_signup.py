@@ -12,8 +12,8 @@ def signinpromt() :
 
 def setup():
      Bank = "IOU Bank"
-     AmmountOfIOU = 24
-     
+    
+     print(Bank)
      JustCreatedAccount = False
      message = hashlib.sha256()
      username = "username"
@@ -26,7 +26,7 @@ def setup():
            pasword = input("pasword : ")
           message.update(pasword.encode())
           HashedPas = message
-          if not db.prefix(username) == HashedPas:
+          if not db[username] == HashedPas:
            db[username] = HashedPas   
            JustCreatedAccount = True 
            setup()
