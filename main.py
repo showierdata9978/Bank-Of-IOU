@@ -9,9 +9,10 @@ def SignUp():
     if db[username] == "" :  
      pasword = input("pasword : ")
      message.update(pasword.encode())
-     HashedPas = message
-    if not db[username] == HashedPas:
+    HashedPas = message
+    if not db.prefix(username) == HashedPas:
         db[username] = HashedPas
+        global JustCreatedAccount
         JustCreatedAccount = True
     
     else : print("there is already an accont with that user")
@@ -41,11 +42,13 @@ def setup():
 def Signin():
 
     setup()
+    global username 
     username = input("Username : ")
     #loading and hashing pasword
     pasword = input("pasword : ")
     message.update(pasword.encode())
-    global HashedPas = message
+    global HashedPas 
+    HashedPas = message
 
     return
 
