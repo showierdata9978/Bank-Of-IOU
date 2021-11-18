@@ -1,7 +1,7 @@
-from SignIn_signup import signinpromt
+from functions.SignIn_signup import signinsignup
 if __name__ == '__main__':
  #functions
- signinpromt()
+ signinsignup()
  
 
 

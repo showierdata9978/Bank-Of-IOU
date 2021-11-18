@@ -1,5 +1,6 @@
-from replit import db
+from functions.Bank import bank
 import hashlib
+from replit import db
 def signinpromt() :
   prompt = input("sign in or sign up : ").lower()
   if prompt == 'sign in' or 'sign up':
@@ -8,6 +9,8 @@ def signinpromt() :
   else: print("error command not known ")
   return 
   
+
+
 def setup():
      
      #makeing the vars
@@ -25,34 +28,30 @@ def setup():
      username = "username"
      pasword = "pasword"
      HashedPas = message.update(pasword.encode())
-    #defineing bank
+     #defineing bank
      print(HashedPas)
      Bank = "IOU Bank"
      AmmountOfIOU = 24
      username = input("Username : ")
      if prompt == "signup" :
-       if db[username] == "None" :  
-        pasword = input("pasword : ")
-        message.update(pasword.encode())
-        HashedPas = message
-        if not db.prefix(username) == HashedPas:
-         db[username] = HashedPas
-         global JustCreatedAccount
-         JustCreatedAccount = True
+          if db[username] == "None" :  
+           pasword = input("pasword : ")
+          message.update(pasword.encode())
+          HashedPas = message
+          if not db.prefix(username) == HashedPas:
+           db[username] = HashedPas   
+           JustCreatedAccount = True
+           setup
+         
          
      elif prompt == "signin":
-         message.update(pasword.encode())
-         global HashedPas 
-         HashedPas = message
+       message.update(pasword.encode())
+       HashedPas = message
+       bank
+     
          
         
-#Signin / Signup prompt
-def Bank():
-    if HashedPas == db[username]:
-       bankhash = Bank + username + HashedPas
-       bankhash = bankhash.encode
-       db[bankhash] = AmmountOfIOU
-       print(AmmountOfIOU)
-    else:
-     print("wrong username or pasword") 
+     #Signin / Signup prompt
+     
+
          
