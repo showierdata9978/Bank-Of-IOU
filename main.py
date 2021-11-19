@@ -1,7 +1,10 @@
 if __name__ == '__main__':
     #functions
-    from functions.SignIn_signup import signinpromt
-    from functions.Bank import bank
-    signinpromt()
-    from functions.SignIn_signup import hashedpas, username, JustCreatedAccount, Bank
-    bank(hashedpas, username, JustCreatedAccount, Bank)
+    import time 
+    from functions.Setup import mainFunc
+    time.sleep(.1)
+    print("Loading")
+    time.sleep(1)
+    print("done")
+    mainFunc()
+    
