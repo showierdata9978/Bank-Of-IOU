@@ -20,3 +20,22 @@ def reset(til):
  for i in range(1,til):
    open('functions/Database/db.db','w')
    dbf.write("" ,i)
+
+def DB(data,key,func):
+  if func == "W":
+    write(data,key)
+  elif func == "r" :
+    read(key)
+  elif func == "r":
+    reset(key)
+  elif func == "c" : 
+   clear(key)
+  else : 
+    Error("nofuncnammed" + func , "functions/database/db.py.DB") 
+  return
+
+def Error(why,where):
+  print(why + " " + where )
+  
+  return
+    
