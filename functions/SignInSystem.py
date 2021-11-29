@@ -1,4 +1,4 @@
-   
+
 def signinsystem(JustCreatedAccount,Bank,message,prompt) : 
      
     
@@ -6,23 +6,26 @@ def signinsystem(JustCreatedAccount,Bank,message,prompt) :
     from replit import db
     
     
-    Username = input("Username : ")
+    
     if prompt == "sign up":
+        Username = "None"
         if db[Username] == "None":
+            Username = input("Username : ")
             pasword = input("pasword : ")
         message.update(pasword.encode())
-        HashedPas = message
-        if not db[Username] == HashedPas:
-            db[Username] = HashedPas
+        Hashedpasword = message
+        if not db[Username] == Hashedpasword:
+            db[Username] = Hashedpasword
             JustCreatedAccount = True
             return
         return
-
+    
     elif prompt == "sign in":
+        Username = input("Username : ")
         pasword = input("pasword : ")
         message.update(pasword.encode())
-        HashedPas = message
-        bank(HashedPas, Username, JustCreatedAccount, Bank)
+        Hashedpasword = message
+        bank(Hashedpasword, Username, JustCreatedAccount, Bank)
 
         return
   
