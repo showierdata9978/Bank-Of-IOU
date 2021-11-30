@@ -5,14 +5,14 @@
 
 version: 2
 updates:
-  - package-ecosystem: "Python Poetry" # See documentation for possible values
+  - package-ecosystem: "Python" # See documentation for possible values
     directory: "showierdata9978/Bank-Of-IOU/blob/main/poetry.lock" # Location of package manifests
     schedule:
       interval: "daily"
       
 version: 2
 updates:
-  - package-ecosystem: "Python Poetry" # See documentation for possible values
+  - package-ecosystem: "Python" # See documentation for possible values
     directory: "showierdata9978/Bank-Of-IOU/blob/main/pyproject.toml" # Location of package manifests
     schedule:
       interval: "daily"
