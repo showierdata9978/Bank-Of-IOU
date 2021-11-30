@@ -1,3 +1,6 @@
-from functions.Database.Db import write,read
-write("two","hi")
-print(read("hi"))
+from functions.Database.Db import DB
+
+DB("hi","tsts","w")
+print(DB("Null","tsts","r"))
+DB("null","tsts","dele")
+print(DB("Null","tsts","r"))
