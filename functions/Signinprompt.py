@@ -1,8 +1,8 @@
 
-def signinpromt(JustCreatedAccount,Bank,message,SignedIn):
+def signinpromt(just_created_account,bank,message,signed_in):
  
   
-  if not SignedIn :
+  if not signed_in :
     from functions.SignInSystem import signinsystem
     
     global prompt
@@ -10,10 +10,11 @@ def signinpromt(JustCreatedAccount,Bank,message,SignedIn):
     if prompt == "sign in" or "sign up":
 
        
-        signinsystem(JustCreatedAccount,Bank,message,prompt,SignedIn)
-        return
+        signinsystem(just_created_account,bank,message,prompt,signed_in)
+        
     else:
         print("error: command not known ")
-        return
         
-  else : signinsystem(JustCreatedAccount,Bank,message,prompt,SignedIn)
+        
+  else : signinsystem(just_created_account,bank,message,prompt,signed_in)
+  return

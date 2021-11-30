@@ -1,11 +1,11 @@
 import hashlib
 def setup():
-    global Bank   
-    Bank = "IOU Bank"
-    print(Bank)
-    global JustCreatedAccount
+    global bank   
+    bank = "IOU Bank"
+    print(bank)
+    global _just_created_account
     global message
-    JustCreatedAccount = False
+    _just_created_account = False
     message = hashlib.sha256()
     
 

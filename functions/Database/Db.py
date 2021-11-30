@@ -26,7 +26,7 @@ def DB(data,key,func):
     write(data,key)
   elif func == "r" :
     read(key)
-  elif func == "r":
+  elif func == "re":
     reset(key)
   elif func == "c" : 
    clear(key)

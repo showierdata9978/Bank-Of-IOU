@@ -1,35 +1,35 @@
 
-def signinsystem(JustCreatedAccount,Bank,message,prompt,SignedIn) : 
+def signinsystem(just_created_account,Bank,message,prompt,signed_in) : 
      
     
     from functions.Bank import bank
     from replit import db
     
     
-    if not SignedIn :
+    if not signed_in :
      if prompt == "sign up":
-         Username = "None"
-         if db[Username] == "None":
-             Username = input("Username : ")
+         username = "None"
+         if db[username] == "None":
+             username = input("username : ")
              pasword = input("pasword : ")
          message.update(pasword.encode())
-         Hashedpasword = message
-         if not db[Username] == Hashedpasword:
-             db[Username] = Hashedpasword
-             JustCreatedAccount = True
+         hashed_pasword = message
+         if not db[username] == hashed_pasword:
+             db[username] = hashed_pasword
+             just_created_account = True
              
          
     
     
      elif prompt == "sign in":
-         Username = input("Username : ")
+         username = input("Username : ")
          pasword = input("pasword : ")
          message.update(pasword.encode())
-         Hashedpasword = message
-         bank(Hashedpasword, Username, JustCreatedAccount, Bank,SignedIn)
+         hashed_pasword = message
+         bank(hashed_pasword, username, just_created_account, Bank,signed_in)
 
-         return
+         
     else : 
-      bank(Hashedpasword, Username, JustCreatedAccount, Bank,SignedIn)
-      
+      bank(hashed_pasword, username, just_created_account, Bank,signed_in)
+    return
     
