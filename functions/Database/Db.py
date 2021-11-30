@@ -5,6 +5,7 @@ def dbsetup(key):
     dbf = open('functions/Database/db.dat')
     return enc
 
+
 def read(key):
     ret = dbf.readline(key.encode())
     dbf.close()
@@ -14,7 +15,7 @@ def read(key):
 def write(data, key):
     count = len(dbf.readlines())
     while key.encode() < count or not key.encode() == count:
-        open(dbf,'a')
+        open(dbf, 'a')
         dbf.close()
     open(dbf, 'w')
     dbf.write(key.encode(), data)
@@ -41,7 +42,7 @@ def DB(data, key, func):
         read(key)
     elif func == "re":
         reset(key)
-    elif func == "d":
+    elif func == "dele":
         dele(key)
     else:
         Error("no function nammed " + func, "functions/database/db.py.DB")
