@@ -1,62 +1,55 @@
 def dbsetup(key):
-    global dbf
-    global dbp 
-    dbp = 'functions/Database/db.dat'
-    
     mBytes = key.encode("utf-8")
     inc = int.from_bytes(mBytes, byteorder="big")
-    dbf = open(dbp)
-    print(dbf)
+    open('functions/Database/db.dat') 
+    
     print(inc)
     print(mBytes)
     
-    count = len(dbp.readlines())
+    count = len(open('functions/Database/db.dat').readlines())
     while not count >= 5: 
      write(" ",5)
     return inc
 def read(inc):
     
     
-    ret = dbf.readline()
-    print(ret)
+    ret = open('functions/Database/db.dat').readline(inc)
+    
     ret = ret.decode
-    print(ret)
-    dbf.close()
+    open('functions/Database/db.dat').close()
     return ret
 
 
 def write(data, inc):
-    count = len(dbf.readlines())
+    count = len(open('functions/Database/db.dat').readlines())
     print(count)
     while inc < count or not inc == count:
-        open(dbp, 'a')
-        dbf.close()
-    open(dbp, 'w',inc)
-    dbf.write(int(inc,2), data)
-    dbf.close()
+        open('functions/Database/db.dat', 'a')
+        open('functions/Database/db.dat').close()
+    open ('functions/Database/db.dat', 'w',inc)
+    open('functions/Database/db.dat').write(data,int(inc,2))
+    open('functions/Database/db.dat').close()
 
 
 def dele(inc):
-    open(dbp, 'w',inc)
-    dbf.write(" ", inc)
-    dbf.close()
+    open('functions/Database/db.dat', 'w',inc).write(" ")
+   
+    open('functions/Database/db.dat').close()
 
 
 def reset(til):
     for i in range(2, til):
-        open(dbp, 'w')
-        dbf.write("", i)
+        open ('functions/Database/db.dat', 'w')
+        open('functions/Database/db.dat').write("", i)
 
 def clear():
-   count = len(dbp.readlines())
+   count = len(open('functions/Database/db.dat').readlines())
    while not count == 1 : 
-    count = len(dbp.readlines())
-    dbf.write(" ",count)
+    count = len(open('functions/Database/db.dat').readlines())
+    open('D').write(" ",count)
 
 def DB(data, key, func):
     inc = dbsetup(key)
-    print(data)
-    print(inc)
     if func == "w":
         write(data, inc)
     elif func == "r":
@@ -67,7 +60,7 @@ def DB(data, key, func):
     elif func == "dele":
         dele(inc)
     else:
-        Error("no function nammed " + func, "functions/database/db.py.DB")
+        Error("no function nammed " + func, "functions/Database/db.py.DB")
     
 
 

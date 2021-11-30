@@ -1,13 +1,20 @@
-def signinsystem(just_created_account, Bank, message, prompt, signed_in):
-    from functions.Database.Db import DB
-    from functions.Bank import bank
-    from replit import db
-    hashed_pasword = "set"
+from functions.Database.Db import DB
+from functions.Bank import bank
     
-    username = "set"
+
+def signinsystem(just_created_account, Bank, message, prompt, signed_in):
+    
+    
+   
     if not signed_in:
+        hashed_pasword = "set"
+        username = "set"
+        pasword = "set"
         if prompt == "sign up":
             username = " "
+            pasword = "set"
+            message.update(pasword.encode())
+            hashed_pasword = message
             dbw = DB(hashed_pasword,username,"w")
             dbr3 = DB(hashed_pasword,username,"r")
             if dbr3 == " ":

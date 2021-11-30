@@ -1,5 +1,5 @@
 from functions.Database.Db import DB
 
 
-DB("Nusd","tsts","w")
-
+DB("stst","hi","w")
+print(DB("stst","null","r"))
