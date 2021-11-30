@@ -6,28 +6,38 @@ def dbsetup(key):
     mBytes = key.encode("utf-8")
     inc = int.from_bytes(mBytes, byteorder="big")
     dbf = open(dbp)
-    return inc
+    print(dbf)
+    print(inc)
+    print(mBytes)
+    
     count = len(dbp.readlines())
     while not count >= 5: 
      write(" ",5)
+    return inc
 def read(inc):
-    ret = dbf.readline(inc)
+    
+    
+    ret = dbf.readline()
+    print(ret)
+    ret = ret.decode
+    print(ret)
     dbf.close()
     return ret
 
 
 def write(data, inc):
     count = len(dbf.readlines())
+    print(count)
     while inc < count or not inc == count:
         open(dbp, 'a')
         dbf.close()
-    open(dbp, 'w')
+    open(dbp, 'w',inc)
     dbf.write(int(inc,2), data)
     dbf.close()
 
 
 def dele(inc):
-    open(dbp, 'w')
+    open(dbp, 'w',inc)
     dbf.write(" ", inc)
     dbf.close()
 
@@ -37,9 +47,15 @@ def reset(til):
         open(dbp, 'w')
         dbf.write("", i)
 
+def clear():
+   count = len(dbp.readlines())
+   while not count == 1 : 
+    count = len(dbp.readlines())
+    dbf.write(" ",count)
 
 def DB(data, key, func):
     inc = dbsetup(key)
+    print(data)
     print(inc)
     if func == "w":
         write(data, inc)

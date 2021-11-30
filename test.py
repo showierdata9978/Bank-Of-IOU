@@ -1,5 +1,5 @@
 m = "sdjlwdd"
-mBytes = m.encode("utf-8")
+c
 print(mBytes)
 mInt = int.from_bytes(mBytes, byteorder="big")
 mBytes2 = mInt.to_bytes(((mInt.bit_length() + 7) // 8), byteorder="big")

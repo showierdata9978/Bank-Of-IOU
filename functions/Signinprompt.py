@@ -1,7 +1,9 @@
 def signinpromt(just_created_account, bank, message, signed_in):
-
+    from functions.SignInSystem import signinsystem
+    prompt = "Set"
+    hashedpas = "set"
     if not signed_in:
-        from functions.SignInSystem import signinsystem
+        
         prompt = input("sign in or sign up : ").lower()
         if prompt == "sign in" or "sign up":
 

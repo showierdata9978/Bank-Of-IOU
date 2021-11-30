@@ -6,7 +6,7 @@ if __name__ == '__main__':
     print("Loading")
     time.sleep(1)
     print("done")
-    SignedIn = False
+    SignedIn = True
     main_func(SignedIn)
     while SignedIn:
       main_func(SignedIn)
