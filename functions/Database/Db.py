@@ -1,55 +1,61 @@
 def dbsetup(key):
     global dbf
-    global enc
-    enc = key.encode
-    dbf = open('functions/Database/db.dat')
-    return enc
-
-
-def read(key):
-    ret = dbf.readline(key.encode())
+    global dbp 
+    dbp = 'functions/Database/db.dat'
+    
+    mBytes = key.encode("utf-8")
+    inc = int.from_bytes(mBytes, byteorder="big")
+    dbf = open(dbp)
+    return inc
+    count = len(dbp.readlines())
+    while not count >= 5: 
+     write(" ",5)
+def read(inc):
+    ret = dbf.readline(inc)
     dbf.close()
     return ret
 
 
-def write(data, key):
+def write(data, inc):
     count = len(dbf.readlines())
-    while key.encode() < count or not key.encode() == count:
-        open(dbf, 'a')
+    while inc < count or not inc == count:
+        open(dbp, 'a')
         dbf.close()
-    open(dbf, 'w')
-    dbf.write(key.encode(), data)
+    open(dbp, 'w')
+    dbf.write(int(inc,2), data)
     dbf.close()
 
 
-def dele(key):
-    open(dbf, 'w')
-    dbf.write(" ", key.encode())
+def dele(inc):
+    open(dbp, 'w')
+    dbf.write(" ", inc)
     dbf.close()
 
 
 def reset(til):
-    for i in range(1, til):
-        open(dbf, 'w')
+    for i in range(2, til):
+        open(dbp, 'w')
         dbf.write("", i)
 
 
 def DB(data, key, func):
-    dbsetup(key)
+    inc = dbsetup(key)
+    print(inc)
     if func == "w":
-        write(data, key)
+        write(data, inc)
     elif func == "r":
-        read(key)
+        ret = read(inc)
+        return ret
     elif func == "re":
-        reset(key)
+        reset(inc)
     elif func == "dele":
-        dele(key)
+        dele(inc)
     else:
         Error("no function nammed " + func, "functions/database/db.py.DB")
-    return
+    
 
 
 def Error(why, where):
-    print(why + "/n " + where)
+    print(why,2 + "/n " + where)
 
     return
