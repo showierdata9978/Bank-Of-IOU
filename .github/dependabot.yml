@@ -12,7 +12,7 @@ updates:
       
 version: 2
 updates:
-  - package-ecosystem: "Python" # See documentation for possible values
+  - package-ecosystem: "pip" # See documentation for possible values
     directory: "showierdata9978/Bank-Of-IOU/blob/main/pyproject.toml" # Location of package manifests
     schedule:
       interval: "daily"
