@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    #functions
+    #function
     import time 
     from functions.mainfunc import main_func
     time.sleep(.1)
